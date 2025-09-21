@@ -226,5 +226,3 @@ air-pollution-beijing/
 
 **Course**: Machine Learning Techniques I  
 **Assignment**: Air Quality Forecasting with RNN/LSTM  
-**Student**: [Student Name]  
-**Submission Date**: [Date]
