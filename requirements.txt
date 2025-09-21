@@ -6,4 +6,4 @@ tensorflow
 scikit-learn
 scipy
 jupyter
-ipykernel 
+ipykernel

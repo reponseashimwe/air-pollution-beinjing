@@ -1,219 +1,150 @@
-# Air Quality Forecasting Project Roadmap
+# Air Quality Forecasting Challenge - Task Overview
 
-## Project Overview
+## Challenge Description
 
-**Objective**: Predict PM2.5 concentrations in Beijing using RNN/LSTM models
-**Target**: RMSE < 4000 on Kaggle leaderboard
-**Dataset**: Historical air quality and weather data from Beijing
+This is the first graded assignment for the Machine Learning Techniques I course, focusing on applying RNNs and LSTM models to forecast air pollution levels (PM2.5) in Beijing using historical air quality and weather data.
 
-## Current State Analysis
+## Objective
 
-From the existing notebook, I can see:
+-   **Primary Goal**: Achieve RMSE < 4000 on Kaggle Public Leaderboard ✅ ACHIEVED (3877.96)
+-   **Target Goal**: Achieve RMSE < 3000 on Kaggle Private Leaderboard
+-   **Stretch Goal**: Achieve RMSE ~2000 for competitive performance
 
--   Basic LSTM model with 32 units, single layer
--   Simple preprocessing (fillna with mean, basic normalization)
--   Limited data exploration
--   Only 10 epochs training
--   Current approach treats each sample independently (no proper time series sequences)
+## Current Status
 
-## Key Issues to Address
+-   **Current Best Public Score**: 3877.96 (Experiment 6)
+-   **Status**: Target < 4000 achieved, working toward < 3000 and ideally ~2000
+-   **Submissions Made**: 6 experiments with consistent improvement
 
-1. **Time Series Structure**: Current model doesn't properly utilize temporal sequences
-2. **Limited Feature Engineering**: No lag features, rolling averages, or temporal patterns
-3. **Shallow Architecture**: Single LSTM layer may be insufficient
-4. **Minimal Hyperparameter Tuning**: Only basic parameters tested
-5. **Insufficient Data Exploration**: Missing critical visualizations and analysis
+## Submission Requirements
 
-## Detailed Roadmap
+### 1. Comprehensive Report
 
-### Phase 1: Data Exploration & Analysis (15 points)
+-   **Introduction**: Problem description and approach
+-   **Data Exploration**: Dataset analysis and preprocessing steps
+-   **Model Design**: Best performing architecture and design choices
+-   **Experiment Table**: Systematic experiments with parameters
+-   **Results**: Performance analysis and key findings
+-   **Conclusion**: Summary and proposed improvements
 
-#### 1.1 Comprehensive EDA
+### 2. GitHub Repository
 
--   [ ] Dataset overview and structure analysis
--   [ ] Missing value patterns and temporal distribution
--   [ ] Target variable (PM2.5) distribution and statistics
--   [ ] Temporal patterns: hourly, daily, weekly, seasonal trends
--   [ ] Feature correlation analysis and heatmaps
--   [ ] Outlier detection and analysis
+-   Well-documented code
+-   Clear experiment tracking
+-   Reproducible results
 
-#### 1.2 Visualizations with Explanations
+### 3. Kaggle Submissions
 
--   [ ] Time series plots of PM2.5 over different periods
--   [ ] Distribution plots (histograms, box plots) for all features
--   [ ] Correlation matrix heatmap
--   [ ] Seasonal decomposition plots
--   [ ] Feature importance through correlation with target
--   [ ] Missing data patterns visualization
+-   Up to 10 submissions per day
+-   Format according to sample_submission.csv
+-   Avoid similarity > 50% or AI-generated work
 
-#### 1.3 Feature Engineering Strategy
+## Rubric Breakdown (Total: 55 points)
 
--   [ ] Create lag features (PM2.5 at t-1, t-2, etc.)
--   [ ] Rolling window statistics (mean, std, min, max)
--   [ ] Time-based features (hour, day of week, month, season)
--   [ ] Weather interaction features
--   [ ] Cyclical encoding for temporal features
+### Approach to the Challenge (5 points)
 
-### Phase 2: Data Preprocessing & Sequence Creation (Part of 15 points)
+-   Clear explanation of time series approach
+-   Justification for RNN/LSTM usage
+-   Data exploration and preprocessing plan
+-   Specific goals and architecture testing strategy
 
-#### 2.1 Advanced Preprocessing
+### Data Exploration, Preprocessing & Feature Engineering (15 points)
 
--   [ ] Handle missing values with forward fill, interpolation
--   [ ] Outlier treatment strategies
--   [ ] Feature scaling/normalization (StandardScaler, MinMaxScaler)
--   [ ] Create proper time series sequences for LSTM input
+-   Thorough dataset exploration with statistics and visualizations
+-   Detailed preprocessing (missing data, sequences, windowing)
+-   Explained feature engineering relevance to model performance
+-   Justified visualizations that inform model building
 
-#### 2.2 Sequence Generation
+### Model Design & Architecture (15 points)
 
--   [ ] Implement sliding window approach for time series
--   [ ] Create sequences of different lengths (12, 24, 48, 72 hours)
--   [ ] Proper train/validation split maintaining temporal order
--   [ ] Data generator for efficient memory usage
+-   Well-optimized RNN/LSTM architecture
+-   Detailed specifications (layers, units, activations, optimizers, learning rates)
+-   Justified design choices with diagrams
+-   Multiple architecture comparisons
 
-### Phase 3: Model Architecture Design (15 points)
+### Kaggle Private Leaderboard Score (20 points)
 
-#### 3.1 Baseline Models
+-   **Exemplary (20 pts)**: Score < 3000
+-   **Target**: Score ~2000 for competitive advantage
 
--   [ ] Simple LSTM (current model improvement)
--   [ ] Bidirectional LSTM
--   [ ] GRU alternative
--   [ ] Stacked LSTM layers
+## Current Progress Analysis
 
-#### 3.2 Advanced Architectures
+### Experiment Evolution
 
--   [ ] LSTM with attention mechanism
--   [ ] CNN-LSTM hybrid
--   [ ] Multi-input LSTM (separate weather and pollution features)
--   [ ] Encoder-Decoder LSTM for sequence-to-sequence
+1. **Experiment 1**: 6914.80 RMSE (Baseline LSTM)
+2. **Experiments 2-3**: ~5500-5000 RMSE (Enhanced features)
+3. **Experiment 4**: 4639.71 RMSE (Bidirectional LSTM)
+4. **Experiment 5**: 4060.83 RMSE (Enhanced Bidirectional v2)
+5. **Experiment 6**: 3877.96 RMSE (Optimized ensemble approach) ✅
 
-#### 3.3 Architecture Components
+### Key Improvements Made
 
--   [ ] Dropout layers for regularization
--   [ ] Batch normalization
--   [ ] Different activation functions
--   [ ] Skip connections
--   [ ] Multiple output heads
+-   Enhanced feature engineering (31+ features)
+-   Bidirectional LSTM architecture
+-   48-hour sequence length
+-   RobustScaler for outlier handling
+-   Ensemble approaches
+-   Advanced temporal encoding
 
-### Phase 4: Systematic Experimentation (10 points)
+### Next Steps Required
 
-#### 4.1 Experiment Design (Minimum 15 experiments)
+-   Target RMSE ~2000 for competitive private leaderboard performance
+-   Advanced model architectures (Transformer, CNN-LSTM hybrid)
+-   Sophisticated ensemble methods
+-   Advanced feature engineering and data augmentation
+-   Hyperparameter optimization with multiple model types
 
-**Hyperparameters to vary:**
+## Data Overview
 
--   Learning rates: [0.001, 0.01, 0.0001, 0.005]
--   Batch sizes: [16, 32, 64, 128]
--   LSTM units: [32, 64, 128, 256]
--   Number of layers: [1, 2, 3, 4]
--   Sequence lengths: [12, 24, 48, 72]
--   Dropout rates: [0.1, 0.2, 0.3, 0.5]
--   Optimizers: [Adam, RMSprop, SGD]
--   Loss functions: [MSE, MAE, Huber]
-
-#### 4.2 Experiment Tracking
-
-```
-| Exp# | Architecture | Seq_Len | LSTM_Units | Layers | LR | Batch | Dropout | Optimizer | Loss | Epochs | Val_RMSE | Test_RMSE | Notes |
-|------|-------------|---------|------------|--------|----|----|---------|-----------|------|--------|----------|-----------|-------|
-| 1    | Simple LSTM | 24      | 64         | 1      | 0.001 | 32 | 0.2     | Adam      | MSE  | 50     | 3500     | 3600      | Baseline |
-```
-
-### Phase 5: Model Optimization & Validation
-
-#### 5.1 Advanced Training Techniques
-
--   [ ] Early stopping with patience
--   [ ] Learning rate scheduling
--   [ ] Model checkpointing
--   [ ] Cross-validation for time series
--   [ ] Ensemble methods
-
-#### 5.2 Performance Analysis
-
--   [ ] Learning curves analysis
--   [ ] Residual analysis
--   [ ] Feature importance analysis
--   [ ] Error pattern analysis by time periods
-
-### Phase 6: Report Writing (5 points)
-
-#### 6.1 Report Structure
-
-1. **Introduction**
-
-    - Problem statement and significance
-    - Approach overview and methodology
-
-2. **Data Exploration**
-
-    - Dataset characteristics and insights
-    - Preprocessing decisions and justifications
-    - Feature engineering rationale
-
-3. **Model Design**
-
-    - Architecture selection reasoning
-    - Technical implementation details
-    - Design trade-offs and considerations
-
-4. **Experiments**
-
-    - Systematic experimentation table
-    - Hyperparameter sensitivity analysis
-    - Performance comparison and insights
-
-5. **Results**
-
-    - Best model performance metrics
-    - Validation and test results
-    - Error analysis and model limitations
-
-6. **Conclusion**
-    - Key findings and contributions
-    - Future improvements and research directions
-
-## Implementation Priority
-
-### Week 1: Foundation
-
-1. Complete comprehensive EDA with visualizations
-2. Implement proper time series preprocessing
-3. Create sequence generation pipeline
-4. Build baseline LSTM model
-
-### Week 2: Experimentation
-
-1. Design and implement 5-7 different architectures
-2. Run systematic hyperparameter experiments
-3. Track and analyze results
-4. Optimize best performing models
-
-### Week 3: Optimization & Reporting
-
-1. Fine-tune top 3 models
-2. Ensemble best models
-3. Final validation and testing
-4. Write comprehensive report
-5. Prepare GitHub repository
-
-## Success Metrics
-
--   **Primary**: RMSE < 4000 on Kaggle leaderboard
--   **Secondary**: Comprehensive analysis and experimentation
--   **Tertiary**: Well-documented, reproducible code
+-   **Training Data**: Historical air quality and weather data
+-   **Features**: Weather conditions (TEMP, DEWP, PRES, etc.) + PM2.5 target
+-   **Test Data**: Future periods requiring PM2.5 predictions
+-   **Challenge**: Time series forecasting with temporal dependencies
 
 ## Technical Requirements
 
--   Minimum 15 experiments documented
--   Proper time series validation
--   Multiple architecture types tested
--   Comprehensive preprocessing pipeline
--   Detailed visualizations with explanations
--   Clean, documented code on GitHub
+-   RNN or LSTM models (can explore advanced variants)
+-   Time series preprocessing and sequence generation
+-   Feature engineering for temporal patterns
+-   Model optimization and experimentation
+-   Kaggle submission format compliance
+    ...........................
+    Air Quality Forecasting
+    This is your first graded assignment for the Machine Learning Techniques I course. It focuses on applying Recurrent Neural Networks (RNNs) and Long Short-Term Memory (LSTM) models to solve a real-world problem: forecasting air pollution levels. Air pollution, particularly PM2.5, is a critical global issue that impacts public health and urban planning. By accurately predicting PM2.5 concentrations, governments and communities can take timely action to mitigate their effects.
 
-## Risk Mitigation
+This project uses historical air quality and weather data to predict PM2.5 concentrations in Beijing. You will:
 
--   Start with simple models and gradually increase complexity
--   Maintain detailed experiment logs
--   Regular checkpoint saves
--   Multiple validation strategies
--   Early submission to Kaggle for feedback
+Preprocess sequential data to uncover patterns.
+Design and train RNN or LSTM models to make accurate predictions.
+Fine-tune the model and run several experiments. The goal is to have a Root Mean Squared Error below 4000 on the Leaderboard.
+Submission Requirements
+Submit a comprehensive report.
+
+Introduction: Briefly describe the problem and your approach.
+Data Exploration: Summarize your dataset analysis, including any preprocessing steps.
+Model Design: Describe the architecture of your RNN/LSTM model that gave you the best performance and why you chose it.
+Experiment Table: Include a table summarizing your experiments. The table must have the following columns. The parameters column should include more parameters, and not only the learning rate, as demonstrated.
+Results: Discuss your model’s performance and any key findings.
+Conclusion: Summarize your work and propose improvements or next steps.
+Include the GitHub repo link in your report. Make sure your code is well documented.
+Instructions for Joining the Kaggle Challenge
+Your first graded assignment for the Machine Learning Techniques I course is hosted on Kaggle. Follow these steps to join the competition and submit your work:
+
+Use this link to access the competition: Join HereLinks to an external site.
+
+If you don’t already have a Kaggle account, sign up using your ALU email, as personal emails will not be accepted.
+
+Click Join Competition and accept the rules.
+
+Download the data files (train.csv, test.csv, and sample_submission.csv) from the Data tab on Kaggle.
+
+Train.csv: train.csvDownload train.csv
+Test.csv: test.csvDownload test.csv
+Sample_submission.csv : sample_submission.csvDownload sample_submission.csv
+Download the starter Notebook which you are required to modify such that you can meet all requirements on the rubric.
+air_quality_forecasting_starter_code.ipynbDownload air_quality_forecasting_starter_code.ipynb
+Train an RNN or LSTM model using train.csv and generate predictions for test.csv. Format your predictions according to sample_submission.csv
+
+Submit your predictions on Kaggle by clicking Submit Predictions on the competition page. You can make up to 10 submissions per day
+
+NB: Submissions with a similarity score above 50% or AI-generated work will not be graded! The same applies to Kaggle submissions with the exact scores on the leaderboard.
