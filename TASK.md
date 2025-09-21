@@ -108,9 +108,12 @@ This is the first graded assignment for the Machine Learning Techniques I course
 -   Feature engineering for temporal patterns
 -   Model optimization and experimentation
 -   Kaggle submission format compliance
-    ...........................
-    Air Quality Forecasting
-    This is your first graded assignment for the Machine Learning Techniques I course. It focuses on applying Recurrent Neural Networks (RNNs) and Long Short-Term Memory (LSTM) models to solve a real-world problem: forecasting air pollution levels. Air pollution, particularly PM2.5, is a critical global issue that impacts public health and urban planning. By accurately predicting PM2.5 concentrations, governments and communities can take timely action to mitigate their effects.
+
+## Task Description
+
+...........................
+Air Quality Forecasting
+This is your first graded assignment for the Machine Learning Techniques I course. It focuses on applying Recurrent Neural Networks (RNNs) and Long Short-Term Memory (LSTM) models to solve a real-world problem: forecasting air pollution levels. Air pollution, particularly PM2.5, is a critical global issue that impacts public health and urban planning. By accurately predicting PM2.5 concentrations, governments and communities can take timely action to mitigate their effects.
 
 This project uses historical air quality and weather data to predict PM2.5 concentrations in Beijing. You will:
 
@@ -148,3 +151,29 @@ Train an RNN or LSTM model using train.csv and generate predictions for test.csv
 Submit your predictions on Kaggle by clicking Submit Predictions on the competition page. You can make up to 10 submissions per day
 
 NB: Submissions with a similarity score above 50% or AI-generated work will not be graded! The same applies to Kaggle submissions with the exact scores on the leaderboard.
+
+RUBRIC
+Criteria
+
+1. Exemplary
+   Provides a clear and detailed explanation of the approach. Includes: an overall strategy for handling time series data, justification for using RNNs/LSTMs, a plan for data exploration, preprocessing, and experimentation. Clearly outlines specific goals for the challenge, such as improving RMSE and testing multiple architectures.
+
+2. OutcomeData Exploration, Preprocessing, & Feature engineering
+   15 to >12.0 pts
+   Exemplary
+   Thorough exploration of the dataset with summary statistics and visualizations (e.g., line plots, histograms, handling missing values). Preprocessing includes handling missing data, creating input-output sequences, time windowing, etc. Each step is explained in detail. The code has explanations of the relevance of every preprocessing and feature engineering made to the performance of the model. Also, every plot/visualization has an explanation of what it's necessary and how it informs the process of building a good model.
+
+3. Model Design & Architecture
+   15 to >12.0 pts
+   Exemplary
+   Implements a well-optimized RNN/LSTM architecture. Details include the number of layers, units, activation functions, optimizers, learning rates, and loss functions. Justifies design choices and includes diagrams
+
+4. Results & Discussion
+   10 to >8.0 pts
+   Exemplary
+   Define RMSE and provide the formula. A thorough analysis of RMSE results and trends across experiments. Includes comparisons, visualizations (e.g., predictions vs. actual values), and error analysis (e.g., overfitting/underfitting). Explain why certain configurations performed better or worse. Makes mention of any of the challenges in RNNs like vanishing and exploding gradients and how it was addressed.
+
+5. Kaggle Private Leaderboard Score
+   20 pts
+   Exemplary
+   Kaggle Private score less than 3000
